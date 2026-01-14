@@ -1,7 +1,3 @@
-Here's a suggested README for your project:
-
----
-
 # EM Betting Game
 
 This is a web-based betting game developed for the European Championship (EM). Users can register, log in, place their bets on various matches, and view their scores based on correct predictions. The project is built using PHP and MySQL.

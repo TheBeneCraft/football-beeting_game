@@ -1,40 +1,35 @@
-⚽ EM Betting Game
+# EM Betting Game
 
-Ein webbasiertes Tippspiel zur Fußball-Europameisterschaft (EM).
-User können sich registrieren, Tipps auf Spiele abgeben, Punkte sammeln und am Ende die Gesamtwertung einsehen.
+Ein webbasiertes Tippspiel zur Fußball-Europameisterschaft (EM). Benutzer können sich registrieren, Tipps abgeben, Punkte sammeln und die Gesamtauswertung einsehen.
 
-✨ Features
+## Funktionen
 
-👤 User Accounts (Registrierung & Login)
+- Benutzerregistrierung und Login
+- Tippsystem für Spiele (vor Spielbeginn)
+- Adminbereich zur Verwaltung von Spielen, Ergebnissen und Benutzern
+- Punktesystem für korrekte Tipps
+- E-Mail-Benachrichtigung nach Turnierabschluss
 
-🎯 Tippsystem für laufende Spiele — vor Spielbeginn
+## Technologie-Stack
 
-🛠️ Admin-Panel zur Verwaltung von Spielen, Ergebnissen & Usern
+- PHP (PDO)
+- MySQL
+- HTML/CSS
+- PHPMailer (E-Mail-Versand)
 
-🏆 Punktesystem für korrekte Tipps
+## Installation
 
-✉️ E-Mail Benachrichtigungen nach Turnierende
+### 1. Repository klonen
 
-🔐 Session & Rechteverwaltung
-
-🧱 Tech Stack
-Bereich	Technologie
-Frontend	HTML, CSS
-Backend	PHP (PDO)
-Datenbank	MySQL
-Email	PHPMailer
-🚀 Installation
-1️⃣ Repository klonen
 git clone https://github.com/yourusername/em-betting-game.git
 cd em-betting-game
 
-2️⃣ Datenbank importieren
+### 2. Datenbank importieren
 
-Erstelle eine MySQL-Datenbank und importiere das SQL-Schema:
+MySQL-Datenbank erstellen und folgendes Schema importieren:
 
 -- Database: em_betting_game
 
--- Table: accounts
 CREATE TABLE accounts (
   id INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(50) NOT NULL UNIQUE,
@@ -46,7 +41,6 @@ CREATE TABLE accounts (
   is_admin TINYINT(1) DEFAULT 0
 );
 
--- Table: matches
 CREATE TABLE matches (
   id INT AUTO_INCREMENT PRIMARY KEY,
   team1_id INT NOT NULL,
@@ -57,13 +51,11 @@ CREATE TABLE matches (
   evaluated TINYINT(1) DEFAULT 0
 );
 
--- Table: countries
 CREATE TABLE countries (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100) NOT NULL
 );
 
--- Table: tips
 CREATE TABLE tips (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT NOT NULL,
@@ -74,60 +66,45 @@ CREATE TABLE tips (
   FOREIGN KEY (match_id) REFERENCES matches(id)
 );
 
--- Sample countries
-INSERT INTO countries (name) VALUES
-('Germany'), ('France'), ('Italy'), ('Spain'), ('Portugal');
+INSERT INTO countries (name) VALUES ('Germany'), ('France'), ('Italy'), ('Spain'), ('Portugal');
 
--- Sample matches
 INSERT INTO matches (team1_id, team2_id, match_date) VALUES
 (1, 2, '2024-06-12 18:00:00'),
 (3, 4, '2024-06-12 21:00:00'),
 (2, 5, '2024-06-13 18:00:00');
 
--- Example admin user
 INSERT INTO accounts (username, email, password, vorname, nachname, points, is_admin)
 VALUES ('admin', 'admin@example.com', 'hashed_password_here', 'John', 'Doe', 0, 1);
 
-3️⃣ Konfiguration
+### 3. Konfiguration
 
-In config.php Datenbankdaten anpassen:
+In config.php Daten eintragen:
 
 $host = 'your_host';
 $dbname = 'your_database_name';
 $user = 'your_database_user';
 $password = 'your_database_password';
 
-4️⃣ E-Mail Einstellungen
+SMTP-Konfiguration in email_config.php eintragen.
 
-In email_config.php SMTP-Daten eintragen.
+### 4. Deployment
 
-5️⃣ Starten
+Die Anwendung kann lokal (z.B. XAMPP) oder auf einem Webserver ausgeführt werden.
 
-Das Projekt auf einem lokalen Server (z. B. XAMPP) oder produktivem Webserver deployen.
+## Nutzung
 
-🖥️ Nutzung
-Aktion	Beschreibung
-📝 Registrieren	Account erstellen
-🔐 Login	Dashboard & Spiele
-⚽ Tippen	Tipps vor Spielbeginn setzen
-🛠️ Admin	Spiele/Ergebnisse/User verwalten
-📊 Scores	Punkte & Ranglisten ansehen
-👨‍💻 Contributing
+- Account erstellen
+- Login
+- Spiele anzeigen
+- Tipps abgeben (vor Spielbeginn)
+- Ergebnisse und Punktestand einsehen
+- Admin verwaltet Spiele und Benutzer
 
-Fork erstellen
-
-Branch anlegen: git checkout -b feature-branch
-
-Änderungen committen
-
-Pushen & Pull Request öffnen
-
-📄 Lizenz
+## Lizenz
 
 MIT License
 
-📬 Kontakt
+## Kontakt
 
-📧 info@benestippspiel.de
-
-🌐 Beispiel: benestippspiel.de
+info@benestippspiel.de
+Beispiel: benestippspiel.de

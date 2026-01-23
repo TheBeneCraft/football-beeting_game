@@ -21,7 +21,7 @@ Ein webbasiertes Tippspiel zur Fußball-Europameisterschaft (EM). Benutzer könn
 
 ### 1. Repository klonen
 
-git clone https://github.com/yourusername/em-betting-game.git
+git clone https://github.com/TheBeneCraft/em-betting-game.git
 cd em-betting-game
 
 ### 2. Datenbank importieren
